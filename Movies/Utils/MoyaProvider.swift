@@ -17,9 +17,9 @@ enum MovieApi {
     
 }
 extension MovieApi: TargetType {
-
+    
     var baseURL: URL {
-        guard let url = URL(string: "https://api.themoviedb.org/3/") else { fatalError() }
+        guard let url = URL(string: MoviesUrl.BASE_URL) else { fatalError() }
         return url
     }
     
@@ -39,6 +39,8 @@ extension MovieApi: TargetType {
     }
     var method: Moya.Method {
         return .get
+        
+        
     }
     var sampleData: Data {
         return Data()
@@ -52,23 +54,23 @@ extension MovieApi: TargetType {
         case .movie(let genreId):
             return .requestParameters(parameters: ["with_genres" : genreId, "api_key": MoviesUrl.API_KEY], encoding: URLEncoding.default)
             
-        case .detail(let movieId):
+        case .detail( _):
             return .requestParameters(parameters: ["api_key": MoviesUrl.API_KEY], encoding: URLEncoding.default)
             
-        case .review(let movieId):
+        case .review( _):
             return .requestParameters(parameters: ["api_key": MoviesUrl.API_KEY], encoding: URLEncoding.default)
-        
-        case .trailer(let movieId):
+            
+        case .trailer( _):
             return .requestParameters(parameters: ["api_key": MoviesUrl.API_KEY], encoding: URLEncoding.default)
         }
-        }
+    }
     
     var headers: [String : String]? {
         return nil
     }
 }
 
-    
+
 //method
 //        switch self {
 //        case .genre:

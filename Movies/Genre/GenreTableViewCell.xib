@@ -52,6 +52,7 @@
                 </subviews>
                 <color key="backgroundColor" name="Color_ C43527"/>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="Sfg-x5-H16" secondAttribute="trailing" constant="13" id="HRr-2b-Wr2"/>
                     <constraint firstItem="Sfg-x5-H16" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="fSR-Wr-B1N"/>
                     <constraint firstAttribute="bottom" secondItem="Sfg-x5-H16" secondAttribute="bottom" constant="12" id="guK-BL-8dL"/>
                     <constraint firstItem="Sfg-x5-H16" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="rpV-5Y-1q1"/>

@@ -16,13 +16,13 @@ struct DetailModel: Decodable {
     let id: Int
     let imdbID, originalLanguage, originalTitle: String
     let overview: String?
-    let popularity: Double
-    let posterPath: String
+    let popularity: Double?
+    let posterPath: String?
     let productionCompanies: [ProductionCompany]
     let productionCountries: [ProductionCountry]
     let releaseDate: String?
-    let revenue : Int
-    let runtime: Int
+    let revenue : Int?
+    let runtime: Int?
     let spokenLanguages: [SpokenLanguage]
     let status : String?
     let tagline, title: String

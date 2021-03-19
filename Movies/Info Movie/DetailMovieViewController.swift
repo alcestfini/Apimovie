@@ -11,7 +11,7 @@ import Alamofire
 import MaterialComponents.MaterialCards
 
 class DetailMovieViewController: BaseViewController {
-
+    
     @IBOutlet weak var releasedateLabel: UILabel!
     //@IBOutlet weak var revenueLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
@@ -26,8 +26,6 @@ class DetailMovieViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-       // getRequest(url: "/movie/\(movie_id ?? "")?api_key=\(MoviesUrl.API_KEY)", tag: "movie")
         
         let loggerConfig = NetworkLoggerPlugin.Configuration(logOptions: .verbose)
         let networkLogger = NetworkLoggerPlugin(configuration: loggerConfig)
@@ -55,46 +53,25 @@ class DetailMovieViewController: BaseViewController {
         }
         
     }
-//           // self.revenueLabel.text = String(detailModel.revenue)
-//            self.releasedateLabel.text = detailModel.releaseDate
-//            self.overviewText.text = detailModel.overview
-//
-//           }catch{
-//               print(error.localizedDescription)
-//           }
-         
-
-
-
+    
     @IBAction func backButton(_ sender: Any) { self.dismiss(animated: true, completion: nil)
     }
     @IBAction func reviewButton(_ sender: Any) {
         
         let changePass = ReviewMovieViewController()
-            changePass.movie_id = movie_id
-            changePass.modalPresentationStyle = .fullScreen
-            self.present(changePass, animated: true, completion: nil)
+        changePass.movie_id = movie_id
+        changePass.modalPresentationStyle = .fullScreen
+        self.present(changePass, animated: true, completion: nil)
         
     }
     
     @IBAction func trailerButton(_ sender: Any) {
         let changePass = TrailerViewController()
-            changePass.movie_id = movie_id
-            changePass.modalPresentationStyle = .fullScreen
-            self.present(changePass, animated: true, completion: nil)
+        changePass.movie_id = movie_id
+        changePass.modalPresentationStyle = .fullScreen
+        self.present(changePass, animated: true, completion: nil)
         
     }
-    
-//    let listDetail = DetailTapGesture(target: self, action: #selector(DetailMovieViewController.openDetail))
-//    self.contentView.isUserInteractionEnabled = true
-//    listDetail.details = String(detailModel.id)
-//    self.contentView.addGestureRecognizer(listDetail)
-//
-//    @objc func openDetail(sender: DetailTapGesture){
-//        let changePass = ReviewMovieViewController()
-//        changePass.movie_id = sender.details
-//        changePass.modalPresentationStyle = .fullScreen
-//        self.present(changePass, animated: true, completion: nil)
-    }
+}
 
 

@@ -6,10 +6,10 @@ target 'Movies' do
   use_frameworks!
 
   # Pods for Movies
-	 pod 'PINRemoteImage'  
- 	 pod 'MaterialComponents/Cards'
- 	 pod 'MaterialComponents/BottomNavigation'
-	pod "YoutubePlayer-in-WKWebView", "~> 0.3.0" 
+	pod 'PINRemoteImage'  
+ 	pod 'MaterialComponents/Cards'
+ 	pod 'MaterialComponents/BottomNavigation'
+	pod 'YoutubePlayer-in-WKWebView', '~> 0.3.0'
 	pod 'Moya', '~> 14.0'
 
   target 'MoviesTests' do

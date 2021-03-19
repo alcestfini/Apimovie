@@ -22,10 +22,9 @@ class GenreViewController: BaseViewController {
         listGenre.delegate = self
         listGenre.dataSource = self
         
-        //getRequest(url: "/genre/movie/list?api_key=\(MoviesUrl.API_KEY)", tag: "genre")
         let nibClass = UINib(nibName: "GenreTableViewCell", bundle: nil)
         listGenre.register(nibClass, forCellReuseIdentifier: "genreIdentifier")
-       
+        
         let loggerConfig = NetworkLoggerPlugin.Configuration(logOptions: .verbose)
         let networkLogger = NetworkLoggerPlugin(configuration: loggerConfig)
         let provider = MoyaProvider<MovieApi>(plugins: [networkLogger])
@@ -49,16 +48,7 @@ class GenreViewController: BaseViewController {
         }
         
     }
-    //    override func onSuccess(data: Data, tag: String) {
-    //        do{
-    //            let decoder = JSONDecoder()
-    //            self.genreModel = try decoder.decode(GenreModel.self, from:data)
-    //            debugPrint(self.genreModel)
-    //            self.listGenre.reloadData()
-    //        }catch{
-    //            print(error.localizedDescription)
-    //        }
-    //    }
+    
 }
 
 extension GenreViewController: UITableViewDelegate, UITableViewDataSource{
