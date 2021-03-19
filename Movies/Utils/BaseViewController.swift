@@ -90,6 +90,7 @@ class BaseViewController: UIViewController {
         }
     }
     
+    
     func onSuccess(data: Data, tag: String){}
     
     func onFailed(tag: String){
