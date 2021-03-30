@@ -49,6 +49,21 @@ struct Result: Decodable {
         case voteCount = "vote_count"
     }
 }
+struct ListMovieViewModel {
+    var idMovie: String
+    var statusMovie: String
+    var releaseDate: String
+    var overview: String
+    
+    
+    init() {
+        self.idMovie = ""
+        self.statusMovie = ""
+        self.releaseDate = ""
+        self.overview = ""
+    }
+}
+
 
 
 

@@ -15,6 +15,7 @@ class ReviewMovieViewController: BaseViewController {
     var reviewModel : ReviewModel!
     var review       : String!
     var movie_id : String!
+    var presenter : ReviewMovieViewToPresenterProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,27 +24,28 @@ class ReviewMovieViewController: BaseViewController {
      
         let nibClass = UINib(nibName: "ReviewMovieTableViewCell", bundle: nil)
         listReview.register(nibClass, forCellReuseIdentifier: "reviewIdentifier")
+        presenter?.getReviewMovie()
         
-        let loggerConfig = NetworkLoggerPlugin.Configuration(logOptions: .verbose)
-        let networkLogger = NetworkLoggerPlugin(configuration: loggerConfig)
-        let provider = MoyaProvider<MovieApi>(plugins: [networkLogger])
-        provider.request(.review(movieId: movie_id)) { [self] (result) in
-            switch result {
-            case .success(let response):
-                do{
-                    let reviews: ReviewModel = try response.map(ReviewModel.self)
-                    self.reviewModel = reviews
-                    self.listReview.reloadData()
-                }
-                catch {
-                    debugPrint("error")
-                }
-                break
-            case .failure(let error):
-                debugPrint(error)
-                break
-            }
-        }
+//        let loggerConfig = NetworkLoggerPlugin.Configuration(logOptions: .verbose)
+//        let networkLogger = NetworkLoggerPlugin(configuration: loggerConfig)
+//        let provider = MoyaProvider<MovieApi>(plugins: [networkLogger])
+//        provider.request(.review(movieId: movie_id)) { [self] (result) in
+//            switch result {
+//            case .success(let response):
+//                do{
+//                    let reviews: ReviewModel = try response.map(ReviewModel.self)
+//                    self.reviewModel = reviews
+//                    self.listReview.reloadData()
+//                }
+//                catch {
+//                    debugPrint("error")
+//                }
+//                break
+//            case .failure(let error):
+//                debugPrint(error)
+//                break
+//            }
+//        }
         
     }
     
@@ -52,6 +54,17 @@ class ReviewMovieViewController: BaseViewController {
         self.dismiss(animated: true, completion: nil)
         
         
+    }
+}
+extension ReviewMovieViewController: ReviewMoviePresenterToViewProtocol {
+    func showError() {
+        debugPrint("Error")
+    }
+    
+    func showReviewMovie(reviewModel: ReviewModel) {
+        self.reviewModel = reviewModel
+        listReview.reloadData()
+    
     }
 }
 extension ReviewMovieViewController: UITableViewDelegate, UITableViewDataSource{

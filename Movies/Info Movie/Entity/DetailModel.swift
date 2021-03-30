@@ -7,13 +7,13 @@ import Foundation
 
 // MARK: - Welcome
 struct DetailModel: Decodable {
-    let adult: Bool
-    let backdropPath: String
+    let adult: Bool?
+    let backdropPath: String?
     let belongsToCollection: BelongsToCollection?
-    let budget: Int
+    let budget: Int?
     let genres: [Genres]
-    let homepage: String
-    let id: Int
+    let homepage: String?
+    let id: Int?
     let imdbID, originalLanguage, originalTitle: String
     let overview: String?
     let popularity: Double?
@@ -25,11 +25,13 @@ struct DetailModel: Decodable {
     let runtime: Int?
     let spokenLanguages: [SpokenLanguage]
     let status : String?
-    let tagline, title: String
-    let video: Bool
-    let voteAverage: Double
-    let voteCount: Int
+    let tagline, title: String?
+    let video: Bool?
+    let voteAverage: Double?
+    let voteCount: Int?
 
+    
+    
     enum CodingKeys: String, CodingKey {
         case adult
         case backdropPath = "backdrop_path"
@@ -50,6 +52,7 @@ struct DetailModel: Decodable {
         case voteCount = "vote_count"
     }
 }
+
 
 // MARK: - BelongsToCollection
 struct BelongsToCollection: Decodable {
@@ -103,3 +106,18 @@ struct SpokenLanguage: Decodable {
         case name
     }
 }
+//
+//struct MovieViewModel {
+//    var idMovie: String
+//    var statusMovie: String
+//    var releaseDate: String
+//    var overview: String
+//
+//
+//    init() {
+//        self.idMovie = ""
+//        self.statusMovie = ""
+//        self.releaseDate = ""
+//        self.overview = ""
+//    }
+

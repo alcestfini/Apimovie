@@ -15,7 +15,8 @@ class MovieViewController: BaseViewController {
         UIBarButtonItem!
     
     var movieModel : MovieModel!
-    var genre_ids : String!
+    var presenter : ListMovieViewToPresenterProtocol?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,35 +26,23 @@ class MovieViewController: BaseViewController {
        
         let nibClass = UINib(nibName: "MovieTableViewCell", bundle: nil)
         listMovie.register(nibClass, forCellReuseIdentifier: "movieIdentifier")
-        
-        let loggerConfig = NetworkLoggerPlugin.Configuration(logOptions: .verbose)
-        let networkLogger = NetworkLoggerPlugin(configuration: loggerConfig)
-        
-        let provider = MoyaProvider<MovieApi>(plugins: [networkLogger])
-        provider.request(.movie(genreId: genre_ids)) { (result) in
-            switch result {
-            case .success(let response):
-                do{
-                    let movies: MovieModel = try response.map(MovieModel.self)
-                    self.movieModel = movies
-                    self.listMovie.reloadData()
-                    //testttttafatttae
-                }
-                catch {
-                    debugPrint("error")
-                }
-                break
-            case .failure(let error):
-                debugPrint(error)
-                break
-            }
-        }
+        presenter?.getListMovie()
         
     }
+    
     @IBAction func backButton(_ sender: Any) { self.dismiss(animated: true, completion: nil)
     }
 }
-
+extension MovieViewController: ListMoviePresenterToViewProtocol{
+    func showListMovie(movieModel : MovieModel){
+        self.movieModel = movieModel
+        listMovie.reloadData()
+        self.removeSpinner()
+    }
+    func showError(){
+        debugPrint("eror")
+    }
+}
 
 
 extension MovieViewController: UITableViewDelegate, UITableViewDataSource{
@@ -75,10 +64,15 @@ extension MovieViewController: UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     @objc func openDetail(sender: MovieTapGesture){
-        let changePass = DetailMovieViewController()
-        changePass.movie_id = sender.movie
+        var context: ListMovieViewModel = ListMovieViewModel()
+        context.idMovie = sender.movie
+        let changePass = MovieConfigurator.shared.createDetailModule(context: context)
+       // changePass.movie_id = sender.movie
         changePass.modalPresentationStyle = .fullScreen
         self.present(changePass, animated: true, completion: nil)
+        
+        
+        
     }
 }
 

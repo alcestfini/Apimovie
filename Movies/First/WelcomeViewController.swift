@@ -8,29 +8,32 @@
 import UIKit
 
 class WelcomeViewController: UIViewController {
-
+    
     @IBOutlet weak var movieButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     @IBAction func seeButton(_ sender: Any) {
-        let see = GenreViewController()
-        see.modalPresentationStyle = .fullScreen
-        self.present(see, animated: true, completion: nil)
-        
+        let see = MovieConfigurator.shared.createGenreModule()
+                see.modalPresentationStyle = .fullScreen
+                self.present(see, animated: true, completion: nil)
+//                
+//        
+//        MovieConfigurator.shared.createGenreModule()
+//        viewController.navigationController?.popViewController(animated: true)
     }
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

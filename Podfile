@@ -11,6 +11,8 @@ target 'Movies' do
  	pod 'MaterialComponents/BottomNavigation'
 	pod 'YoutubePlayer-in-WKWebView', '~> 0.3.0'
 	pod 'Moya', '~> 14.0'
+  	pod 'Alamofire', '~> 5.2'
+
 
   target 'MoviesTests' do
     inherit! :search_paths

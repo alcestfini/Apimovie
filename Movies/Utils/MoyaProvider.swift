@@ -69,24 +69,3 @@ extension MovieApi: TargetType {
         return nil
     }
 }
-
-
-//method
-//        switch self {
-//        case .genre:
-//            return .get
-//        case .movie:
-//            return .get
-//        default:
-//            return .post
-
-//extension MovieApi {
-//    var parameters: [String: Any] {
-//        switch self {
-//        case .genre(let params),
-//             .movie(let params):
-//
-//            return ["params": params]
-//        }
-//    }
-//}

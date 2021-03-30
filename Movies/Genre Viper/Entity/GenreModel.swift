@@ -15,3 +15,13 @@ struct Genre: Decodable {
     let id: Int
     let name: String
 }
+
+struct GenreViewModel {
+    var idGenre: String
+    var namaGenre: String
+    
+    init() {
+        self.idGenre = ""
+        self.namaGenre = ""
+    }
+}

@@ -14,41 +14,33 @@ class GenreViewController: BaseViewController {
     @IBOutlet weak var listGenre: UITableView!
     
     var genreModel : GenreModel!
+    var presenter : GenreViewToPresenterProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.showSpinner(onView: self.view)
         
         listGenre.delegate = self
         listGenre.dataSource = self
+        // self.showSpinner(onView: self.view)
         
         let nibClass = UINib(nibName: "GenreTableViewCell", bundle: nil)
         listGenre.register(nibClass, forCellReuseIdentifier: "genreIdentifier")
-        
-        let loggerConfig = NetworkLoggerPlugin.Configuration(logOptions: .verbose)
-        let networkLogger = NetworkLoggerPlugin(configuration: loggerConfig)
-        let provider = MoyaProvider<MovieApi>(plugins: [networkLogger])
-        provider.request(.genre(apikey: "API_KEY")) { (result) in
-            switch result {
-            case .success(let response):
-                do{
-                    let genres: GenreModel = try response.map(GenreModel.self)
-                    self.genreModel = genres
-                    self.listGenre.reloadData()
-                    
-                }
-                catch {
-                    debugPrint("error")
-                }
-                break
-            case .failure(let error):
-                debugPrint(error)
-                break
-            }
-        }
+        presenter?.getGenre()
         
     }
     
+}
+extension GenreViewController: GenrePresenterToViewProtocol{
+    func showGenre(genreModel : GenreModel){
+        self.genreModel = genreModel
+        listGenre.reloadData()
+        self.removeSpinner()
+    }
+    func showError(){
+        debugPrint("eror")
+    }
 }
 
 extension GenreViewController: UITableViewDelegate, UITableViewDataSource{
@@ -71,11 +63,12 @@ extension GenreViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     @objc func openMovie(sender: GenreTapGesture){
-        let changePass = MovieViewController()
-        changePass.genre_ids = sender.genre
-        changePass.modalPresentationStyle = .fullScreen
-        self.present(changePass, animated: true, completion: nil)
+        var context: GenreViewModel = GenreViewModel()
+        context.idGenre = sender.genre
+        context.namaGenre = "tes"
+        presenter?.goToListMovie(context: context)
     }
+    
 }
 
 
