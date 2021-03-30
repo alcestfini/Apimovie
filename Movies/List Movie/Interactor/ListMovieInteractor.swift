@@ -11,7 +11,7 @@ import Moya
 
 
 class ListMovieInteractor: ListMoviePresenterToInteractorProtocol {
-    weak var presenter: ListMovieInteractorToPresenterProtocol?
+     var presenter: ListMovieInteractorToPresenterProtocol?
     
     var movie: MovieModel?
 

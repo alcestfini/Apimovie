@@ -340,11 +340,11 @@
 		6ACCCDC925D2840D002C0F8E /* Info Movie */ = {
 			isa = PBXGroup;
 			children = (
-				6ECB21E52611BDF1003F19FB /* Router */,
 				6ECB21AC2611B271003F19FB /* View */,
 				6ECB21B02611B284003F19FB /* Interactor */,
 				6ECB21BC2611B3C3003F19FB /* Presenter */,
 				6ACCCE1325D3909C002C0F8E /* Entity */,
+				6ECB21E52611BDF1003F19FB /* Router */,
 				6ECB21B62611B29D003F19FB /* Protocol */,
 			);
 			path = "Info Movie";

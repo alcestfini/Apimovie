@@ -8,16 +8,23 @@
 import Foundation
 
 class ListMoviePresenter: ListMovieViewToPresenterProtocol {
-    weak var view: ListMoviePresenterToViewProtocol?
+
+    var view: ListMoviePresenterToViewProtocol?
     
     var interactor: ListMoviePresenterToInteractorProtocol?
     var router: ListMoviePresenterToRouterProtocol?
     var context: GenreViewModel = GenreViewModel()
     
+    
+    func goToDetailMovie(context: ListMovieViewModel) {
+        guard let view = view else { return }
+        router?.navigateToListMovie(view: view, context: context)
+    }
     func getListMovie()  {
         interactor?.fetchMovie(idGenre: context.idGenre)
     }
     
+   
     
 }
 extension ListMoviePresenter: ListMovieInteractorToPresenterProtocol {

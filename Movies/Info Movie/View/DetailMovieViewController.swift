@@ -21,7 +21,7 @@ class DetailMovieViewController: BaseViewController {
     @IBOutlet weak var trailerButton: UIButton!
     
     var detailModel : DetailModel!
-    var movie_id : String!
+    var movie_id : String?
     
     var presenter : DetailMovieViewToPresenterProtocol?
     

@@ -14,7 +14,7 @@ class MovieViewController: BaseViewController {
     @IBOutlet weak var backButton:
         UIBarButtonItem!
     
-    var movieModel : MovieModel!
+    var movieModel : MovieModel?
     var presenter : ListMovieViewToPresenterProtocol?
 
     
@@ -66,12 +66,7 @@ extension MovieViewController: UITableViewDelegate, UITableViewDataSource{
     @objc func openDetail(sender: MovieTapGesture){
         var context: ListMovieViewModel = ListMovieViewModel()
         context.idMovie = sender.movie
-        let changePass = MovieConfigurator.shared.createDetailModule(context: context)
-       // changePass.movie_id = sender.movie
-        changePass.modalPresentationStyle = .fullScreen
-        self.present(changePass, animated: true, completion: nil)
-        
-        
+        presenter?.goToDetailMovie(context: context)
         
     }
 }

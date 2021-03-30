@@ -13,7 +13,7 @@ class GenreViewController: BaseViewController {
     
     @IBOutlet weak var listGenre: UITableView!
     
-    var genreModel : GenreModel!
+    var genreModel : GenreModel?
     var presenter : GenreViewToPresenterProtocol?
     
     override func viewDidLoad() {
