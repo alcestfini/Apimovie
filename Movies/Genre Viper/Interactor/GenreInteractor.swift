@@ -12,7 +12,6 @@ import Moya
 
 class GenreInteractor: GenrePresenterToInteractorProtocol {
     var presenter: GenreInteractorToPresenterProtocol?
-    
     var genre: GenreModel?
     
     func fetchGenre() {
@@ -27,7 +26,7 @@ class GenreInteractor: GenrePresenterToInteractorProtocol {
                     self.presenter?.genreFetched(genreModel: genres)
                 }
                 catch {
-                    debugPrint("error")
+                    self.presenter?.genreFetchedFailed()
                 }
                 break
             case .failure(_):
@@ -35,8 +34,5 @@ class GenreInteractor: GenrePresenterToInteractorProtocol {
                 break
             }
         }
-        
     }
-    
-
-    }
+}

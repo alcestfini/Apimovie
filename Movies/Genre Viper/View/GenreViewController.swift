@@ -12,6 +12,8 @@ import Moya
 class GenreViewController: BaseViewController {
     
     @IBOutlet weak var listGenre: UITableView!
+    @IBOutlet weak var emptyView: UIView!
+    @IBOutlet weak var genreView: UIView!
     
     var genreModel : GenreModel?
     var presenter : GenreViewToPresenterProtocol?
@@ -23,23 +25,23 @@ class GenreViewController: BaseViewController {
         
         listGenre.delegate = self
         listGenre.dataSource = self
-        // self.showSpinner(onView: self.view)
-        
         let nibClass = UINib(nibName: "GenreTableViewCell", bundle: nil)
         listGenre.register(nibClass, forCellReuseIdentifier: "genreIdentifier")
         presenter?.getGenre()
         
     }
-    
 }
 extension GenreViewController: GenrePresenterToViewProtocol{
     func showGenre(genreModel : GenreModel){
+        self.emptyView.isHidden = true
+        self.genreView.isHidden = false
         self.genreModel = genreModel
         listGenre.reloadData()
         self.removeSpinner()
     }
     func showError(){
-        debugPrint("eror")
+        self.emptyView.isHidden = false
+        self.genreView.isHidden = true
     }
 }
 
@@ -57,7 +59,7 @@ extension GenreViewController: UITableViewDelegate, UITableViewDataSource{
         
         let genreMovie = GenreTapGesture(target: self, action: #selector(GenreViewController.openMovie))
         cell.detailGenre.isUserInteractionEnabled = true
-        genreMovie.genre = String(genresModel.id)
+        genreMovie.genre = String(genresModel.id ?? 0)
         cell.detailGenre.addGestureRecognizer(genreMovie)
         return cell
     }
@@ -65,7 +67,6 @@ extension GenreViewController: UITableViewDelegate, UITableViewDataSource{
     @objc func openMovie(sender: GenreTapGesture){
         var context: GenreViewModel = GenreViewModel()
         context.idGenre = sender.genre
-        context.namaGenre = "tes"
         presenter?.goToListMovie(context: context)
     }
     

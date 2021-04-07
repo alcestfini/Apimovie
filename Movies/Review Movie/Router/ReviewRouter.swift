@@ -9,11 +9,12 @@ import Foundation
 import UIKit
 
 class ReviewRouter: ReviewMoviePresenterToRouterProtocol{
-    func navigateToListReview(view: ReviewMoviePresenterToViewProtocol) {
+    func navigateToListReview(view: ReviewMoviePresenterToViewProtocol, context: ListMovieViewModel) {
         if let view = view as? UIViewController {
-            //let viewController = MovieConfigurator.shared.createListMovieModule()
-        }
+            let viewController = MovieConfigurator.shared.createReviewModule(context: context)
+            viewController.modalPresentationStyle = .fullScreen
+            view.present(viewController, animated: true, completion: nil)
     }
 
 }
-
+}

@@ -64,6 +64,8 @@
 		6E208073260DE222004EB93A /* ListMovieInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E208072260DE222004EB93A /* ListMovieInteractor.swift */; };
 		6E208079260DE34D004EB93A /* ListMovieRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E208078260DE34D004EB93A /* ListMovieRouter.swift */; };
 		6E8A1E6A261190E000277116 /* MovieConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8A1E69261190E000277116 /* MovieConfigurator.swift */; };
+		6EA8C2ED2615A02F00778FC6 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA8C2EB2615A02F00778FC6 /* PopUpViewController.swift */; };
+		6EA8C2EE2615A02F00778FC6 /* PopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EA8C2EC2615A02F00778FC6 /* PopUpViewController.xib */; };
 		6EC69B7226048A530004F7B3 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC69B7126048A530004F7B3 /* PopUpView.swift */; };
 		6EC69B7726048A800004F7B3 /* PopUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EC69B7626048A800004F7B3 /* PopUpView.xib */; };
 		6EC69B83260494290004F7B3 /* CallPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EC69B81260494290004F7B3 /* CallPopUpViewController.swift */; };
@@ -159,6 +161,8 @@
 		6E208072260DE222004EB93A /* ListMovieInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMovieInteractor.swift; sourceTree = "<group>"; };
 		6E208078260DE34D004EB93A /* ListMovieRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMovieRouter.swift; sourceTree = "<group>"; };
 		6E8A1E69261190E000277116 /* MovieConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieConfigurator.swift; sourceTree = "<group>"; };
+		6EA8C2EB2615A02F00778FC6 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
+		6EA8C2EC2615A02F00778FC6 /* PopUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopUpViewController.xib; sourceTree = "<group>"; };
 		6EC69B7126048A530004F7B3 /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
 		6EC69B7626048A800004F7B3 /* PopUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopUpView.xib; sourceTree = "<group>"; };
 		6EC69B81260494290004F7B3 /* CallPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallPopUpViewController.swift; sourceTree = "<group>"; };
@@ -597,6 +601,8 @@
 				6EC69B7626048A800004F7B3 /* PopUpView.xib */,
 				6EC69B81260494290004F7B3 /* CallPopUpViewController.swift */,
 				6EC69B82260494290004F7B3 /* CallPopUpViewController.xib */,
+				6EA8C2EB2615A02F00778FC6 /* PopUpViewController.swift */,
+				6EA8C2EC2615A02F00778FC6 /* PopUpViewController.xib */,
 			);
 			path = PopUp;
 			sourceTree = "<group>";
@@ -772,6 +778,7 @@
 				6A8B0A6C25D2550200B60EA4 /* Assets.xcassets in Resources */,
 				6AD3EF2325D527C500536412 /* TrailerTableViewCell.xib in Resources */,
 				6ACCCDAD25D27104002C0F8E /* MovieViewController.xib in Resources */,
+				6EA8C2EE2615A02F00778FC6 /* PopUpViewController.xib in Resources */,
 				6ACCCD9425D258D9002C0F8E /* GenreTableViewCell.xib in Resources */,
 				6A8B0A9C25D255BB00B60EA4 /* WelcomeViewController.xib in Resources */,
 				6AE9C00225D3E391001A4472 /* ReviewMovieViewController.xib in Resources */,
@@ -909,6 +916,7 @@
 				6E0C5E5B261209EC005CA64B /* ReviewRouter.swift in Sources */,
 				6E208063260DDDE4004EB93A /* ListMovieProtocol.swift in Sources */,
 				6ECB21E72611BE08003F19FB /* DetailMovieRouter.swift in Sources */,
+				6EA8C2ED2615A02F00778FC6 /* PopUpViewController.swift in Sources */,
 				6EC69B83260494290004F7B3 /* CallPopUpViewController.swift in Sources */,
 				6E20804B260D9DAA004EB93A /* GenreRouter.swift in Sources */,
 				6EC69B7226048A530004F7B3 /* PopUpView.swift in Sources */,

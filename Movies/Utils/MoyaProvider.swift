@@ -14,7 +14,6 @@ enum MovieApi {
     case detail(movieId: String)
     case review(movieId: String)
     case trailer(movieId: String)
-    
 }
 extension MovieApi: TargetType {
     

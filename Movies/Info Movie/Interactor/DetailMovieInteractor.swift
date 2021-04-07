@@ -26,14 +26,15 @@ class DetailMovieInteractor: DetailMoviePresenterToInteractorProtocol {
                 do{
                     let details: DetailModel = try response.map(DetailModel.self)
                     self.presenter?.detailFetched(detailMovie: details)
+                
                     
                 }
                 catch {
-                    debugPrint("error")
+                    self.presenter?.detailFetchedFailed()
                 }
                 break
-            case .failure(let error):
-                debugPrint(error)
+            case .failure( _):
+                self.presenter?.detailFetchedFailed()
                 break
             }
         }

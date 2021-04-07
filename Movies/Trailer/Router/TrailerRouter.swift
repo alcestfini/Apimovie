@@ -9,9 +9,12 @@ import Foundation
 import UIKit
 
 class TrailerRouter: TrailerPresenterToRouterProtocol {
-    func navigateToListTrailer(view: TrailerPresenterToViewProtocol) {
+    func navigateToListTrailer(view: TrailerPresenterToViewProtocol, context: ListMovieViewModel) {
         if let view = view as? UIViewController {
-      //      let viewController = MovieConfigurator.shared.createTrailerModule()
+            let viewController = MovieConfigurator.shared.createTrailerModule(context: context)
+            viewController.modalPresentationStyle = .fullScreen
+            view.present(viewController, animated: true, completion: nil)
+
         }
     }
     

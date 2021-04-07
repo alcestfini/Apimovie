@@ -35,7 +35,7 @@ protocol ReviewMovieInteractorToPresenterProtocol: class {
 }
 // MARK: - Router
 protocol ReviewMoviePresenterToRouterProtocol: class {
-    func navigateToListReview(view: ReviewMoviePresenterToViewProtocol)
+    func navigateToListReview(view: ReviewMoviePresenterToViewProtocol, context: ListMovieViewModel)
 }
 
 

@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GenreViewController" customModule="Movies" customModuleProvider="target">
             <connections>
+                <outlet property="emptyView" destination="OvQ-sC-2Je" id="5ua-Tk-0oK"/>
+                <outlet property="genreView" destination="uLh-bK-XKQ" id="o95-Ii-NTz"/>
                 <outlet property="listGenre" destination="JUO-yt-mfa" id="6DQ-7J-k9M"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -47,13 +49,36 @@
                         <constraint firstAttribute="trailing" secondItem="JUO-yt-mfa" secondAttribute="trailing" id="lQA-hJ-Sy6"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OvQ-sC-2Je" userLabel="empty view">
+                    <rect key="frame" x="87" y="384" width="240" height="128"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data Not Found!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wGF-KC-f5d">
+                            <rect key="frame" x="58" y="54" width="125" height="21"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="wGF-KC-f5d" secondAttribute="trailing" constant="57" id="4UJ-MG-FY7"/>
+                        <constraint firstItem="wGF-KC-f5d" firstAttribute="leading" secondItem="OvQ-sC-2Je" secondAttribute="leading" constant="58" id="JEE-Zg-5j9"/>
+                        <constraint firstItem="wGF-KC-f5d" firstAttribute="top" secondItem="OvQ-sC-2Je" secondAttribute="top" constant="54" id="Z5c-El-94f"/>
+                        <constraint firstAttribute="bottom" secondItem="wGF-KC-f5d" secondAttribute="bottom" constant="53" id="j8G-3b-gIu"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="OvQ-sC-2Je" secondAttribute="trailing" constant="87" id="45A-yr-KeN"/>
                 <constraint firstItem="uLh-bK-XKQ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="K2V-wh-vGq"/>
+                <constraint firstItem="OvQ-sC-2Je" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="87" id="TSf-yP-QAP"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="uLh-bK-XKQ" secondAttribute="bottom" id="Uq3-em-SQx"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="uLh-bK-XKQ" secondAttribute="trailing" id="X5T-fz-57b"/>
+                <constraint firstItem="OvQ-sC-2Je" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="340" id="csS-Az-LUB"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="OvQ-sC-2Je" secondAttribute="bottom" constant="350" id="qdM-Uw-jsP"/>
                 <constraint firstItem="uLh-bK-XKQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="sVf-3e-4UR"/>
             </constraints>
             <point key="canvasLocation" x="-175.36231884057972" y="75"/>

@@ -15,6 +15,8 @@ protocol DetailMovieViewToPresenterProtocol: class {
     var context: ListMovieViewModel { get set }
 
     func getDetailMovie()
+    func goToListReview(context: ListMovieViewModel)
+    func goToTrailer(context: ListMovieViewModel)
 }
 
 //MARK: -View
@@ -39,6 +41,9 @@ protocol DetailMovieInteractorToPresenterProtocol: class {
 
 //MARK: -Router
 protocol DetailMoviePresenterToRouterProtocol: class {
-    func navigateToDetailMovie(view: DetailMoviePresenterToViewProtocol)
+    func navigateToDetailMovie(view: DetailMoviePresenterToViewProtocol, context: ListMovieViewModel)
+    
+    func navigateToTrailerMovie(view: DetailMoviePresenterToViewProtocol, context: ListMovieViewModel)
+    
 }
 

@@ -20,7 +20,7 @@ class TrailerPresenter: TrailerViewToPresenterProtocol {
     
     func goToListTrailer() {
         guard let view = view else { return }
-        router?.navigateToListTrailer(view: view)
+        router?.navigateToListTrailer(view: view, context: context)
     }
 }
     

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="landscape" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -17,11 +17,11 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="hK4-GM-gEq">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ja-VT-qUY">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <rect key="frame" x="44" y="0.0" width="808" height="393"/>
                     <subviews>
                         <navigationBar contentMode="scaleToFill" translucent="NO" id="NHX-Qc-pMa">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -41,24 +41,29 @@
                                     </barButtonItem>
                                 </navigationItem>
                             </items>
+                            <connections>
+                                <outlet property="delegate" destination="9Ja-VT-qUY" id="KNa-TV-M17"/>
+                            </connections>
                         </navigationBar>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movies Review" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="H8a-EC-idx">
-                            <rect key="frame" x="19" y="62" width="352" height="101"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="35"/>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eIJ-d9-tEu">
+                            <rect key="frame" x="0.0" y="178" width="808" height="207"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </tableView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movies Review" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXo-WO-p8e">
+                            <rect key="frame" x="16" y="89" width="776" height="39"/>
+                            <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="35"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eIJ-d9-tEu">
-                            <rect key="frame" x="0.0" y="178" width="414" height="632"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        </tableView>
                     </subviews>
                     <color key="backgroundColor" name="Color_ C43527"/>
                     <constraints>
+                        <constraint firstItem="qXo-WO-p8e" firstAttribute="top" secondItem="NHX-Qc-pMa" secondAttribute="bottom" constant="45" id="1rg-5I-WEN"/>
+                        <constraint firstItem="eIJ-d9-tEu" firstAttribute="top" secondItem="qXo-WO-p8e" secondAttribute="bottom" constant="50" id="Bg4-QN-Jkt"/>
+                        <constraint firstItem="qXo-WO-p8e" firstAttribute="leading" secondItem="9Ja-VT-qUY" secondAttribute="leading" constant="16" id="Rye-Xg-zb7"/>
                         <constraint firstAttribute="bottom" secondItem="eIJ-d9-tEu" secondAttribute="bottom" constant="8" id="X97-AN-6IC"/>
-                        <constraint firstItem="eIJ-d9-tEu" firstAttribute="top" secondItem="H8a-EC-idx" secondAttribute="bottom" constant="15" id="eAP-ld-IkP"/>
                         <constraint firstAttribute="trailing" secondItem="eIJ-d9-tEu" secondAttribute="trailing" id="r5b-x4-RSs"/>
+                        <constraint firstAttribute="trailing" secondItem="qXo-WO-p8e" secondAttribute="trailing" constant="16" id="t1L-fd-sEx"/>
                         <constraint firstItem="eIJ-d9-tEu" firstAttribute="leading" secondItem="9Ja-VT-qUY" secondAttribute="leading" id="wFU-Gy-YSd"/>
                     </constraints>
                 </view>

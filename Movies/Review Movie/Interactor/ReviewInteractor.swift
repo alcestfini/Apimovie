@@ -24,8 +24,6 @@ class ReviewInteractor: ReviewMoviePresenterToInteractorProtocol {
                 do{
                     let reviews: ReviewModel = try response.map(ReviewModel.self)
                     self.presenter?.reviewFetched(reviewModel: reviews)
-//                    self.reviewModel = reviews
-//                    self.listReview.reloadData()
                 }
                 catch {
                     debugPrint("error")

@@ -8,8 +8,8 @@
 import Foundation
 
 class DetailMoviePresenter: DetailMovieViewToPresenterProtocol {
-    weak var view: DetailMoviePresenterToViewProtocol?
     
+    var view: DetailMoviePresenterToViewProtocol?
     var interactor: DetailMoviePresenterToInteractorProtocol?
     var router: DetailMoviePresenterToRouterProtocol?
     var context: ListMovieViewModel = ListMovieViewModel()
@@ -18,6 +18,15 @@ class DetailMoviePresenter: DetailMovieViewToPresenterProtocol {
         interactor?.fetchDetailMovie(idMovie: context.idMovie)
     }
     
+    func goToListReview(context: ListMovieViewModel) {
+    guard let view = view else { return }
+    router?.navigateToDetailMovie(view: view, context: context)
+    }
+    
+    func goToTrailer(context: ListMovieViewModel) {
+        guard let view = view else { return }
+        router?.navigateToTrailerMovie(view: view, context: context)
+    }
     
 }
 extension DetailMoviePresenter: DetailMovieInteractorToPresenterProtocol {

@@ -14,8 +14,8 @@ class TrailerViewController: BaseViewController {
     
     @IBOutlet weak var listTrailer: UITableView!
     
-    var trailerModel : TrailerModel!
-    var movie_id: String!
+    var trailerModel : TrailerModel?
+    var movie_id: String?
     var presenter : TrailerViewToPresenterProtocol?
 
     override func viewDidLoad() {
@@ -27,27 +27,6 @@ class TrailerViewController: BaseViewController {
         let nibClass = UINib(nibName: "TrailerTableViewCell", bundle: nil)
         listTrailer.register(nibClass, forCellReuseIdentifier: "trailerIdentifier")
         presenter?.getTrailer()
-//        let loggerConfig = NetworkLoggerPlugin.Configuration(logOptions: .verbose)
-//        let networkLogger = NetworkLoggerPlugin(configuration: loggerConfig)
-//        let provider = MoyaProvider<MovieApi>(plugins: [networkLogger])
-//        provider.request(.trailer(movieId: movie_id)) { [self] (result) in
-//            switch result {
-//            case .success(let response):
-//                do{
-//                    let trailers: TrailerModel = try response.map(TrailerModel.self)
-//                    self.trailerModel = trailers
-//                    self.listTrailer.reloadData()
-//                }
-//                catch {
-//                    debugPrint("error")
-//                }
-//                break
-//            case .failure(let error):
-//                debugPrint(error)
-//                break
-//            }
-//        }
-//
     }
   
     @IBAction func backButton(_ sender: Any) { self.dismiss(animated: true, completion: nil)

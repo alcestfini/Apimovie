@@ -12,8 +12,8 @@ struct GenreModel: Decodable {
 
 // MARK: - Genre
 struct Genre: Decodable {
-    let id: Int
-    let name: String
+    let id: Int?
+    let name: String?
 }
 
 struct GenreViewModel {

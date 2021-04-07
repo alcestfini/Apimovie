@@ -15,17 +15,16 @@
 //    required init?(coder: NSCoder) {
 //        fatalError()
 //        }
-//    private var popUpView: PopUpView?
 //    override func viewDidLoad() {
 //        super.viewDidLoad()
 ////        popUpView = PopUpView()
 ////        popUpView?.removeFromSuperview()
 //        popUpView = PopUpView(frame: self.view.frame, title: "test", description: "test2")
 //        self.view.addSubview(popUpView!)
-////
-////        popUpView.setTitleText(title: "Title Pop Up View")
-////        popUpView.setDescriptionText(description: "Description Pop Up View")
-////
+//
+//        popUpView?.setTitleText(title: "Title Pop Up View")
+//        popUpView?.setDescriptionText(description: "Description Pop Up View")
+//
 //
 //    }
 //

@@ -12,9 +12,9 @@ import Moya
 class ReviewMovieViewController: BaseViewController {
     
     @IBOutlet weak var listReview: UITableView!
-    var reviewModel : ReviewModel!
-    var review       : String!
-    var movie_id : String!
+    var reviewModel : ReviewModel?
+    var review       : String?
+    var movie_id : String?
     var presenter : ReviewMovieViewToPresenterProtocol?
     
     override func viewDidLoad() {
@@ -25,35 +25,9 @@ class ReviewMovieViewController: BaseViewController {
         let nibClass = UINib(nibName: "ReviewMovieTableViewCell", bundle: nil)
         listReview.register(nibClass, forCellReuseIdentifier: "reviewIdentifier")
         presenter?.getReviewMovie()
-        
-//        let loggerConfig = NetworkLoggerPlugin.Configuration(logOptions: .verbose)
-//        let networkLogger = NetworkLoggerPlugin(configuration: loggerConfig)
-//        let provider = MoyaProvider<MovieApi>(plugins: [networkLogger])
-//        provider.request(.review(movieId: movie_id)) { [self] (result) in
-//            switch result {
-//            case .success(let response):
-//                do{
-//                    let reviews: ReviewModel = try response.map(ReviewModel.self)
-//                    self.reviewModel = reviews
-//                    self.listReview.reloadData()
-//                }
-//                catch {
-//                    debugPrint("error")
-//                }
-//                break
-//            case .failure(let error):
-//                debugPrint(error)
-//                break
-//            }
-//        }
-        
     }
-    
-   
     @IBAction func backButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
-        
-        
     }
 }
 extension ReviewMovieViewController: ReviewMoviePresenterToViewProtocol {
